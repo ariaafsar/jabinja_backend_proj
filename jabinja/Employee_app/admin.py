@@ -11,5 +11,6 @@ class Employee_Admin(ModelAdmin):
     search_fields = [
         'name',
         'phone_number',
+        'email'
     ]
-# Register your models here.
+
