@@ -20,18 +20,16 @@ class Job(models.Model):
     ]
 
     salary_choises = [
-        ("base", "1000 $"),
-        ("mid", "3000 $"),
-        ("top", "5000 $"),
+        ("base", "1000 - 3000 $"),
+        ("mid", "3000 - 5000 $"),
+        ("top", "5000 - 7000 $"),
     ]
 
     name = models.CharField(max_length= 100)
-    # contractor = models.ForeignKey(, on_delete= models.CASCADE)
+    contractor = models.ForeignKey("Contractor_app.Contractor", on_delete= models.CASCADE, null= True)
     location = models.TextField(null= True)
     category = models.CharField(max_length= 100, choices= category_choises)
     position = models.CharField(max_length= 1, choices= positon_choises)
     time_type = models.CharField(max_length=100, choices= time_choises)
     salary = models.CharField(max_length=100, choices= salary_choises)
-    
-    def __str__(self) -> str:
-        return self.name
+

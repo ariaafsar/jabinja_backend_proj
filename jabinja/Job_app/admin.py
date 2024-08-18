@@ -8,8 +8,14 @@ class Job_admin(ModelAdmin):
         "name",
         "position",
         "category",
+        "contractor",
+        "salary",
     ]
 
     list_filter = [
-        "location"
+        "location",
+    ]
+
+    search_fields = [
+        "contactor"
     ]
