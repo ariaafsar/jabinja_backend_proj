@@ -32,3 +32,7 @@ def return_job_by_id(request, id_input):
         "salary": job.salary,
         }
     return JsonResponse(job_dict)
+
+def return_job_by_location(request, location_input):
+    jobs = Job.objects.filter(location= location_input).values('id', 'contractor__name', 'category', 'position', 'time_type', 'salary')
+    return JsonResponse(list(jobs), safe=False)
